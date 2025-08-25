@@ -37,12 +37,12 @@ class StudentTest {
     @Test
     @DisplayName("ทดสอบการเทียบ id")
     void testIsId() {
-        assertEquals(true, student.isId("6xxxxxxxxx"));
+        assertTrue(student.isId("6xxxxxxxxx"));
     }
 
     @Test
     @DisplayName("ทดสอบการมีอยู่ของ name")
     void testIsNameContains() {
-        assertEquals(true, student.isNameContains("StudentTest"));
+        assertTrue(student.isNameContains("StudentTest"));
     }
 }

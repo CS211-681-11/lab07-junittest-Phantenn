@@ -1,6 +1,7 @@
 package ku.cs.models;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,6 +16,7 @@ class StudentListTest {
     }
 
     @Test
+    @DisplayName("ทดสอบการเพิ่มนักเรียน")
     void testAddNewStudent() {
         studentList.addNewStudent("6xxxxxxx1", "StudentTest1");
         studentList.addNewStudent("6xxxxxxx2", "StudentTest2", 80.1);
@@ -28,12 +30,14 @@ class StudentListTest {
     }
 
     @Test
+    @DisplayName("ทดสอบการหานักเรียนด้วย id")
     void testFindStudentById() {
         Student x = studentList.findStudentById("6xxxxxxxx");
-        assertEquals(studentList.getStudents().get(0), x);
+        assertEquals(studentList.getStudents().getFirst(), x);
     }
 
     @Test
+    @DisplayName("ทดสอบการกรองชื่อนักเรียน")
     void testFilterByName() {
         studentList.addNewStudent("6xxxxxxx1", "Johnny");
         studentList.addNewStudent("6xxxxxxx2", "John");
@@ -41,12 +45,14 @@ class StudentListTest {
     }
 
     @Test
+    @DisplayName("ทดสอบการให้คะแนน")
     void testGiveScoreToId() {
         studentList.giveScoreToId("6xxxxxxxx", 80.0);
-        assertEquals(80.0, studentList.getStudents().get(0).getScore());
+        assertEquals(80.0, studentList.getStudents().getFirst().getScore());
     }
 
     @Test
+    @DisplayName("ทดสอบการดูเกรดด้วย id")
     void testViewGradeOfid() {
         studentList.giveScoreToId("6xxxxxxxx", 80.0);
         assertEquals("A", studentList.viewGradeOfId("6xxxxxxxx"));
